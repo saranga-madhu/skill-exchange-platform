@@ -1,0 +1,43 @@
+Initialize Database: Run the setup script to create the database and tables.
+
+cd backend
+node setupDatabase.js
+Running the Application
+1. Start Backend
+cd backend
+npm run dev
+Port: 5001
+
+2. Start Frontend
+cd skillexchange
+npm start
+Port: 3000 (usually)
+
+Verification
+Automated Backend Test
+We have provided a script to verify the backend API independently.
+
+cd backend
+node verify-backend.js
+Manual Verification Steps
+Register: Go to /register and create an account.
+Login: Login with the new account. You should be redirected to Dashboard.
+Dashboard: Check "My Skills" (empty initially) and "Incoming Requests" (mock data replaced with real data, so it will be empty initially).
+Browse Skills: Go to Browse Skills page. You can modify filters.
+Add Skill: (Note: UI for adding skill wasn't explicitly modify in this pass, but API is ready).
+Changes Summary
+Backend: Created complete Express server with auth, skills, requests modules.
+Database: Designed MySQL schema for Users, Skills, Requests.
+Frontend:
+Integrated 
+Login.js
+ and 
+Register.js
+ with API.
+Integrated 
+Browseskills.js
+ to fetch real skills.
+Integrated 
+Dashboard.js
+ to fetch personal skills and requests.
+Updated RequestCard.js to support Accept/Decline actions.

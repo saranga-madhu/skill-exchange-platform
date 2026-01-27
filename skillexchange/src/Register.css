@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #fafafa;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.logo-icon {
+  background: linear-gradient(135deg, #8b2cf5, #ec4899);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  
+}
+
+.register-btn {
+  background: linear-gradient(135deg, #8b2cf5, #ec4899);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+}
+
+/* Register Page */
+.register-page {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.register-title {
+  font-size: 42px;
+  background:  linear-gradient(90deg, #8e2de2, #fa027e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;}
+
+.register-subtitle {
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.register-card {
+  width: 400px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.register-card label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.register-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0 20px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 6px;             
+  margin: 12px 0;
+}
+
+.terms input[type="checkbox"] {
+  margin: 0;           
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.terms span {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.create-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #8e2de2, #ff0080);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login-link span {
+  color: #8b2cf5;
+  cursor: pointer;
+}
+
+

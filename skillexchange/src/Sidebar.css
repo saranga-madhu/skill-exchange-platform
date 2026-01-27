@@ -1,0 +1,55 @@
+.sidebar {
+  width: 220px;
+  background-color: #d38bef;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.avatar {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.menu-btn:hover {
+  background-color: #b963be;
+}
+
+.menu-btn.active {
+  background-color: #b963be;
+}
+
+.logout-btn {
+  margin-top: auto;
+  padding: 10px;
+  border: none;
+  background-color: #a2659e;
+  color: rgb(237, 8, 8);
+  border-radius: 5px;
+  cursor: pointer;
+}

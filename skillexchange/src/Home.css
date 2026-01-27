@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
+}
+
+.logo {
+  display: flex;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.logo-icon {
+  background: linear-gradient(135deg, #8b2cf5, #ec4899);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+/* Buttons */
+.register-btn,
+.primary-btn {
+  background: linear-gradient(90deg, #8b2cf5, #ec4899);
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.outline-btn {
+  background: white;
+  border: 2px solid #8b2cf5;
+  color: #8b2cf5;
+  padding: 12px 26px;
+  border-radius: 25px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  background:  linear-gradient(90deg, #8e2de2, #ff0080);
+  /* Standard property */
+  background-clip: text; /* For future compatibility */
+  
+  /* Webkit prefix for current browsers */
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  color: #6b7280;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;   /* page eka mada center */
+  gap: 15px;                 /* buttons athara space */
+  margin-top: 20px;
+}
+
+
+/* Features */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px;
+}
+
+.feature-card {
+  background: linear-gradient(135deg, #8b2cf5, #ec4899);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.profile-btn {
+  background: none;     /* remove background */
+  border: none;         /* remove border */
+  padding: 0;           /* remove extra space */
+  cursor: pointer;
+  font-size: 24px;      /* icon size */
+  line-height: 1;
+}
+
+.profile-btn:focus {
+  outline: none;        /* blue focus box remove */
+}
+
+.profile-btn:hover {
+  transform: scale(1.1); /* small hover effect (optional) */
+}
