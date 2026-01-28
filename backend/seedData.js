@@ -5,7 +5,14 @@ const seedData = async () => {
     try {
         console.log('🌱 Seeding database...');
 
-        // 1. Create Users
+        // 1. Clear existing data in correct order to avoid FK issues
+        console.log('Clearing old data...');
+        await pool.query('DELETE FROM messages');
+        await pool.query('DELETE FROM requests');
+        await pool.query('DELETE FROM skills');
+        await pool.query('DELETE FROM users');
+
+        // 2. Create Users
         const salt = await bcrypt.genSalt(10);
         const password = await bcrypt.hash('password123', salt);
 
@@ -17,12 +24,6 @@ const seedData = async () => {
         ];
 
         console.log('Creating users...');
-        // We use INSERT IGNORE to skip if email exists
-        await pool.query('DELETE FROM requests');
-        await pool.query('DELETE FROM skills');
-        await pool.query('DELETE FROM users'); // Clear old data for clean seed
-        // Reset auto increment is safer often but let's just insert
-
         const userIds = [];
         for (const user of users) {
             const [result] = await pool.query(
@@ -32,9 +33,13 @@ const seedData = async () => {
             userIds.push(result.insertId);
         }
 
+        if (userIds.length < 4) {
+            throw new Error('Failed to create all seed users');
+        }
+
         const [aliceId, bobId, charlieId, dianaId] = userIds;
 
-        // 2. Create Skills
+        // 3. Create Skills
         const skills = [
             [aliceId, 'React Development', 'IT', 'Expert React developer', 'offered'],
             [aliceId, 'Guitar Lessons', 'Music', 'Beginner to Intermediate', 'offered'],
@@ -57,14 +62,12 @@ const seedData = async () => {
             skillIds.push(result.insertId);
         }
 
-        // 3. Create Requests
-        // Alice wants to learn Python from Bob
-        // Bob wants to learn React from Alice
+        // 4. Create Requests
         const requests = [
-            [aliceId, bobId, skillIds[2], 'Hey Bob, I would love to learn Python!', 'pending'], // Alice asks Bob for Python
-            [bobId, aliceId, skillIds[0], 'Hi Alice, can you teach me React?', 'pending'],      // Bob asks Alice for React
-            [charlieId, dianaId, skillIds[5], 'Need help with PM', 'accepted'],                 // Charlie asks Diana
-            [dianaId, bobId, skillIds[3], 'Hola! Spanish lessons?', 'rejected']                 // Diana asks Bob
+            [aliceId, bobId, skillIds[2], 'Hey Bob, I would love to learn Python!', 'pending'],
+            [bobId, aliceId, skillIds[0], 'Hi Alice, can you teach me React?', 'pending'],
+            [charlieId, dianaId, skillIds[5], 'Need help with PM', 'accepted'],
+            [dianaId, bobId, skillIds[3], 'Hola! Spanish lessons?', 'rejected']
         ];
 
         console.log('Creating requests...');
@@ -75,15 +78,14 @@ const seedData = async () => {
             );
         }
 
-        // 4. Create Messages
-        await pool.query('DELETE FROM messages');
+        // 5. Create Messages
         const messages = [
             [aliceId, bobId, 'Request: Hey Bob, I would love to learn Python!'],
             [bobId, aliceId, 'Hi Alice! Sure, I can help you with that.'],
             [aliceId, bobId, 'Great! When are you free?'],
             [bobId, aliceId, 'Request: Hi Alice, can you teach me React?'],
             [charlieId, dianaId, 'Request: Need help with PM'],
-            [dianaId, charlieId, 'accepted'], // Assuming system message or simple reply
+            [dianaId, charlieId, 'accepted'],
             [dianaId, bobId, 'Request: Hola! Spanish lessons?'],
             [bobId, dianaId, 'Sorry, I am busy right now.']
         ];
@@ -97,14 +99,20 @@ const seedData = async () => {
         }
 
         console.log('✅ Database seeded successfully!');
-        console.log('User logins (password: password123):');
-        users.forEach(u => console.log(`- ${u[1]}`));
+        return { success: true, message: 'Database seeded successfully' };
 
-        process.exit(0);
     } catch (error) {
         console.error('❌ Seeding failed:', error);
-        process.exit(1);
+        throw error;
     }
 };
 
-seedData();
+// Allow running directly
+if (require.main === module) {
+    seedData()
+        .then(() => process.exit(0))
+        .catch(() => process.exit(1));
+}
+
+module.exports = seedData;
+

@@ -7,17 +7,18 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-     <div className="logo">
+      <div className="logo" onClick={() => navigate("/")} style={{ cursor: 'pointer' }}>
         <div className="logo-icon">SE</div>
-        <span>SkillExchange</span>
+        <span className="logo-text">SkillExchange</span>
       </div>
-      
-         <div className="nav-links">
-        
-          <button className="register-btn" onClick={() => navigate("/register")}>Register</button>
-        
-          <button className="primary-btn" onClick={() => navigate("/login")}>Login</button>
-        
+
+      <div className="nav-links">
+        <button className="login-btn-simple" onClick={() => navigate("/login")}>
+          <span className="login-icon">➜</span> Login
+        </button>
+        <button className="register-btn" onClick={() => navigate("/register")}>
+           Register
+        </button>
       </div>
     </nav>
   );

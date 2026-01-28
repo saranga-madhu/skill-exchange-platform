@@ -29,7 +29,7 @@ body {
   display: flex;
   gap: 25px;
   align-items: center;
-  
+
 }
 
 .register-btn {
@@ -55,10 +55,12 @@ body {
 
 .register-title {
   font-size: 42px;
-  background:  linear-gradient(90deg, #8e2de2, #fa027e);
+  background: linear-gradient(135deg, #8b2cf5, #ec4899);
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;}
+  color: transparent;
+
+}
 
 .register-subtitle {
   color: #666;
@@ -80,23 +82,51 @@ body {
   font-weight: 500;
 }
 
-.register-card input {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0 20px;
-  border-radius: 12px;
+.register-card .input-box {
+  display: flex;
+  align-items: center;
   border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin: 8px 0 20px;
+}
+
+.register-card .input-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.register-card .icon {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  color: #8b2cf5;
+}
+
+.eye-icon {
+  display: flex;
+  align-items: center;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.eye-icon:hover {
+  color: #8b2cf5;
 }
 
 .terms {
   display: flex;
   align-items: center;
-  gap: 6px;             
+  gap: 6px;
   margin: 12px 0;
 }
 
 .terms input[type="checkbox"] {
-  margin: 0;           
+  margin: 0;
   width: 16px;
   height: 16px;
   cursor: pointer;
@@ -115,7 +145,11 @@ body {
   padding: 14px;
   border-radius: 30px;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-link {
@@ -128,5 +162,3 @@ body {
   color: #8b2cf5;
   cursor: pointer;
 }
-
-

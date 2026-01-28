@@ -62,7 +62,20 @@
 
 .icon {
   margin-right: 10px;
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  color: #8e2de2;
+}
+
+.eye-icon {
+  display: flex;
+  align-items: center;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.eye-icon:hover {
+  color: #8e2de2;
 }
 
 /* Options */
@@ -93,10 +106,14 @@
   border: none;
   border-radius: 14px;
   font-size: 16px;
+  font-weight: 600;
   color: #fff;
   cursor: pointer;
   background: linear-gradient(90deg, #8e2de2, #ff0080);
   margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-btn:hover {

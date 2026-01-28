@@ -4,13 +4,15 @@ cd backend
 node setupDatabase.js
 Running the Application
 1. Start Backend
-cd backend
-npm run dev
+
+	cd backend
+	npm run dev
 Port: 5001
 
 2. Start Frontend
-cd skillexchange
-npm start
+
+	cd skillexchange
+	npm start
 Port: 3000 (usually)
 
 Verification

@@ -14,7 +14,7 @@ function Navbar1({ onMenuClick }) {
       {/* Logo */}
       <div className="logo" onClick={() => navigate("/")}>
         <div className="logo-icon">SE</div>
-        <span>SkillExchange</span>
+        <span className="logo-text">SkillExchange</span>
       </div>
 
       {/* Navigation Links */}
@@ -24,17 +24,7 @@ function Navbar1({ onMenuClick }) {
         <button className="primary-btn" onClick={() => navigate("/dashboard")}>Dashboard</button>
         <button className="primary-btn" onClick={() => navigate("/messages")}>Messages</button>
 
-        {/* Profile icon button */}
-        <button
-          className="profile-btn"
-          onClick={() => navigate("/profile")}
-          title="Profile"
-        >
-          {/* Simple circular icon with initials or emoji */}
-          <span role="img" aria-label="profile">
-            👤
-          </span>
-        </button>
+    
       </div>
     </nav>
   );

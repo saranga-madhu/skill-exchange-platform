@@ -1,106 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  color: #1f2937;
+}
+
+.home-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* Prevent scrolling if possible */
+  background: radial-gradient(circle at top right, rgba(236, 72, 153, 0.05), transparent),
+    radial-gradient(circle at top left, rgba(139, 44, 245, 0.05), transparent);
 }
 
 /* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 20px 60px;
+  align-items: center;
+  padding: 5px 10% 0;
 }
 
 .logo {
   display: flex;
-  gap: 10px;
-  font-weight: 600;
+  align-items: center;
+  gap: 12px;
 }
 
 .logo-icon {
   background: linear-gradient(135deg, #8b2cf5, #ec4899);
   color: white;
   padding: 8px 12px;
-  border-radius: 10px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(139, 44, 245, 0.3);
 }
 
-/* Buttons */
-.register-btn,
-.primary-btn {
-  background: linear-gradient(90deg, #8b2cf5, #ec4899);
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  background: linear-gradient(135deg, #8b2cf5, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text; /* for other browsers */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.login-btn-simple {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+
+.login-btn-simple:hover {
+  color: #8b2cf5;
+}
+
+.login-icon {
+  font-size: 1rem;
+}
+
+.register-btn {
+  background: linear-gradient(135deg, #8b2cf5, #ec4899);
   border: none;
   color: white;
-  padding: 12px 26px;
-  border-radius: 25px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.85rem;
   cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
 }
 
-.outline-btn {
-  background: white;
-  border: 2px solid #8b2cf5;
-  color: #8b2cf5;
-  padding: 12px 26px;
-  border-radius: 25px;
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
   text-align: center;
-  padding: 80px 20px;
+  padding: 0px 10px 10px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.hero h1 {
-  font-size: 48px;
-  background:  linear-gradient(90deg, #8e2de2, #ff0080);
-  /* Standard property */
-  background-clip: text; /* For future compatibility */
-  
-  /* Webkit prefix for current browsers */
+.hero-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #8b2cf5, #ec4899);
   -webkit-background-clip: text;
-  color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.hero p {
-  max-width: 700px;
-  margin: auto;
-  color: #6b7280;
+.hero-description {
+  font-size: 0.9rem;
+  color: #4d525c;
+  line-height: 1.4;
+  max-width: 500px;
+  margin: 0 auto 15px;
 }
 
 .hero-buttons {
   display: flex;
-  justify-content: center;   /* page eka mada center */
-  gap: 15px;                 /* buttons athara space */
-  margin-top: 20px;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 1px;
 }
 
+.primary-btn {
+  background: linear-gradient(135deg, #8b2cf5, #ec4899);
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(139, 44, 245, 0.15);
+}
 
-/* Features */
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(139, 44, 245, 0.3);
+}
+
+.outline-btn {
+  background: white;
+  border: 2px solid #e5e7eb;
+  color: #8b2cf5;
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.outline-btn:hover {
+  border-color: #8b2cf5;
+  background-color: rgba(139, 44, 245, 0.05);
+}
+
+/* Features Section */
 .features {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  padding: 60px;
+  gap: 15px;
+  padding: 10px 5%;
+  flex-wrap: nowrap;
+  /* Forces one line as requested */
 }
 
 .feature-card {
-  background: linear-gradient(135deg, #8b2cf5, #ec4899);
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  background: rgba(235, 176, 234, 0.76);
+  padding: 15px 15px;
+  border-radius: 15px;
+  flex: 1;
+  max-width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.03);
 }
 
-.profile-btn {
-  background: none;     /* remove background */
-  border: none;         /* remove border */
-  padding: 0;           /* remove extra space */
-  cursor: pointer;
-  font-size: 24px;      /* icon size */
-  line-height: 1;
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
 }
 
-.profile-btn:focus {
-  outline: none;        /* blue focus box remove */
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 0 auto 10px;
+  color: white;
 }
 
-.profile-btn:hover {
-  transform: scale(1.1); /* small hover effect (optional) */
+.purple-gradient {
+  background: linear-gradient(135deg, #8b2cf5, #a855f7);
+}
+
+.pink-gradient {
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+}
+
+.yellow-gradient {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.feature-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.feature-card p {
+  color: #27292e;
+  line-height: 1.4;
+  font-size: 0.85rem;
+}
+
+/* Nav Link Specific Overrides */
+.nav-links button {
+  padding: 8px 16px !important;
+  font-size: 0.85rem !important;
+}
+
+.login-btn-simple {
+  font-size: 0.85rem;
+}
+
+
+/* Response for small screens */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .features {
+    gap: 20px;
+  }
+
+  .feature-card {
+    width: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px 5%;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .primary-btn,
+  .outline-btn {
+    width: 100%;
+    max-width: 300px;
+  }
 }
