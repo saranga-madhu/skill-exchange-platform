@@ -1,0 +1,51 @@
+MYSQL error fix 
+	go to:
+		C:\xampp\mysql\  -> data 
+		1.rename data file as 'data_old'
+		2.Create a NEW folder named: 'data'
+		3.Go to:
+			C:\xampp\mysql\backup
+		4.Copy ALL files & folders inside backup
+		5.Paste them into:
+			C:\xampp\mysql\data
+		6.Recreate database:
+			CREATE DATABASE skillexchange;
+			USE skillexchange;
+		7.Run seed again
+		 From backend folder:
+		 node seeddata.js
+
+You should finally see:
+✅ Database seeded successfully!
+
+If not ----,
+ FIX server.js in THIS LINE
+
+Change it to match the exact filename:
+
+	const seedData = require("./seeddata");
+
+(OR rename file to seedData.js — both are OK, but names must match)
+
+*Restart backend:
+
+	Ctrl + C
+	npm start
+
+*Run seed:
+Now insert dummy data:
+	node seeddata.js
+	
+		Expected output:
+			🌱 Seeding database...
+			Creating users...
+			Creating skills...
+			Creating requests...
+			Creating messages...
+		✅ Database seeded successfully!
+
+4️ Check phpMyAdmin → tables have data
+5️ Open browser → login with:
+
+alice@example.com
+password123

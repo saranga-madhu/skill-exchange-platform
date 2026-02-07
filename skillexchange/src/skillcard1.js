@@ -4,11 +4,16 @@ function SkillCard({ skill, onRequest }) {
     Music: "bg-music",
     Language: "bg-language",
     Design: "bg-design",
+    Others: "bg-others",
+  };
+
+  const getCategoryClass = (category) => {
+    return categoryColors[category] || "bg-others";
   };
 
   return (
     <div className="skill-card">
-      <div className={`category-tag ${categoryColors[skill.category]}`}>
+      <div className={`category-tag ${getCategoryClass(skill.category)}`}>
         {skill.category}
       </div>
       <h3>{skill.title}</h3>

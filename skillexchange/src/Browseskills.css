@@ -71,10 +71,11 @@
   color: white;
 }
 
-.bg-it { background-color: #9b5de5; }
+.bg-it { background-color: #621fb4; }
 .bg-music { background-color: #f15bb5; }
 .bg-language { background-color: #00bbf9; }
 .bg-design { background-color: #00f5d4; }
+.bg-others { background-color: #e69a4a; }
 
 .skill-card h3 {
   margin-top: 10px;
