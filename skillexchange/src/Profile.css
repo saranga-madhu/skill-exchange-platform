@@ -74,6 +74,99 @@
   color: #1f2937;
 }
 
+.profile-info-container {
+  flex: 1;
+}
+
+.edit-profile-toggle {
+  margin-top: 15px;
+  display: block;
+  padding: 8px 20px;
+  background: white;
+  border: 1px solid #8b2cf5;
+  color: #8b2cf5;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.edit-profile-toggle:hover {
+  background: #fdf2ff;
+}
+
+.profile-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+}
+
+.profile-edit-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+}
+
+.profile-edit-form label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.profile-edit-form input {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.form-actions .save-btn {
+  padding: 8px 25px;
+  background: #8b2cf5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form-actions .cancel-btn {
+  padding: 8px 25px;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Skill Card Edit Button */
+.skill-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.edit-skill-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 6px;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: 0.2s;
+}
+
+.edit-skill-btn:hover {
+  background: #e5e7eb;
+}
+
 .no-skills {
   text-align: center;
   padding: 40px;

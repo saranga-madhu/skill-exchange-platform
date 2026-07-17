@@ -5,6 +5,7 @@ const authRoutes = require("./routes/authRoutes");
 const skillRoutes = require("./routes/skillRoutes");
 const requestRoutes = require("./routes/requestRoutes");
 const messageRoutes = require("./routes/messageRoutes");
+const feedbackRoutes = require("./routes/feedbackRoutes");
 const seedData = require("./seedData");
 
 dotenv.config();
@@ -20,6 +21,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/skills", skillRoutes);
 app.use("/api/requests", requestRoutes);
 app.use("/api/messages", messageRoutes);
+app.use("/api/feedbacks", feedbackRoutes);
 
 // Seed route
 app.get("/api/seed", async (req, res) => {

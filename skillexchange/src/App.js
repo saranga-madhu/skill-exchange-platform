@@ -7,6 +7,7 @@ import BrowseSkills from "./Browseskills";
 import MessagePage from "./Messagepage";
 import AddSkill from "./Addskill";
 import Profile from "./Profile";
+import FeedbackPage from "./FeedbackPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/messages" element={<MessagePage />} />
         <Route path="/add-skill" element={<AddSkill />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/feedback/:skillId" element={<FeedbackPage />} />
       </Routes>
     </BrowserRouter>
   );

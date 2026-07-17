@@ -46,7 +46,7 @@
 }
 
 .request-card {
-  background: rgba(206, 197, 197, 0.719);
+  background: rgba(199, 171, 184, 0.719);
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 15px;
@@ -65,7 +65,7 @@
 
 .decline {
   background: transparent;
-  border: 1px solid #ccc;
+  border: 1px solid #816060;
   padding: 8px 15px;
   border-radius: 8px;
 }

@@ -79,3 +79,41 @@ exports.login = async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 };
+
+exports.getProfile = async (req, res) => {
+    try {
+        const [users] = await pool.execute(
+            'SELECT id, name, email, education_level, created_at FROM users WHERE id = ?',
+            [req.user.id]
+        );
+
+        if (users.length === 0) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.json(users[0]);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+
+exports.updateProfile = async (req, res) => {
+    const { name, education_level } = req.body;
+
+    if (!name) {
+        return res.status(400).json({ message: 'Name is required' });
+    }
+
+    try {
+        await pool.execute(
+            'UPDATE users SET name = ?, education_level = ? WHERE id = ?',
+            [name, education_level || 'University Student', req.user.id]
+        );
+
+        res.json({ message: 'Profile updated successfully', name, education_level });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error' });
+    }
+};
