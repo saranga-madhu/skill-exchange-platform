@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
 import "./Home.css";
+import skillMeetLogo from "./assests/SkillMeetLogo.png";
 
 
 function Navbar1({ onMenuClick }) {
@@ -10,12 +11,16 @@ function Navbar1({ onMenuClick }) {
   return (
     <nav className="navbar">
 
-
-      {/* Logo */}
-      <div className="logo" onClick={() => navigate("/")}>
-        <div className="logo-icon">SE</div>
-        <span className="logo-text">SkillExchange</span>
+    <div className="logo" onClick={() => navigate("/")} style={{ cursor: 'pointer' }}>
+        <img
+          src={skillMeetLogo}
+          alt="SkillMeet"
+          className="logo-image"
+          style={{ height: '80px' }}
+        />
+        
       </div>
+
 
       {/* Navigation Links */}
       <div className="nav-links">

@@ -20,9 +20,19 @@ function ProfileModal({ onClose }) {
     return (
         <div className="modal-overlay" onClick={onClose}>
             <div className="modal-content" onClick={e => e.stopPropagation()}>
+                {user.photo && (
+                    <div style={{ textAlign: "center", marginBottom: "15px" }}>
+                        <img
+                            src={user.photo}
+                            alt={`${user.name}'s Profile`}
+                            style={{ width: "80px", height: "80px", borderRadius: "50%", objectFit: "cover" }}
+                        />
+                    </div>
+                )}
                 <h2>{user.name}'s Profile</h2>
                 <p><strong>Email:</strong> {user.email}</p>
-                <p><strong>Education:</strong> Computer Science</p>
+                {user.university && <p><strong>University:</strong> {user.university}</p>}
+                <p><strong>Education:</strong> {user.education_level || "Computer Science"}</p>
                 <button onClick={onClose}>Close</button>
             </div>
         </div>

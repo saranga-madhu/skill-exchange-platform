@@ -83,7 +83,7 @@ exports.login = async (req, res) => {
 exports.getProfile = async (req, res) => {
     try {
         const [users] = await pool.execute(
-            'SELECT id, name, email, education_level, created_at FROM users WHERE id = ?',
+            'SELECT id, name, email, education_level, university, photo, created_at FROM users WHERE id = ?',
             [req.user.id]
         );
 
@@ -99,19 +99,19 @@ exports.getProfile = async (req, res) => {
 };
 
 exports.updateProfile = async (req, res) => {
-    const { name, education_level } = req.body;
+    const { name, email, education_level, university, photo } = req.body;
 
-    if (!name) {
-        return res.status(400).json({ message: 'Name is required' });
+    if (!name || !email) {
+        return res.status(400).json({ message: 'Name and email are required' });
     }
 
     try {
         await pool.execute(
-            'UPDATE users SET name = ?, education_level = ? WHERE id = ?',
-            [name, education_level || 'University Student', req.user.id]
+            'UPDATE users SET name = ?, email = ?, education_level = ?, university = ?, photo = ? WHERE id = ?',
+            [name, email, education_level || 'University Student', university || '', photo || '', req.user.id]
         );
 
-        res.json({ message: 'Profile updated successfully', name, education_level });
+        res.json({ message: 'Profile updated successfully', name, email, education_level, university, photo });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server error' });
