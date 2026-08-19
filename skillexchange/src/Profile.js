@@ -85,7 +85,7 @@ function Profile() {
                 body: JSON.stringify({
                     name: editName,
                     email: editEmail,
-                    degree: editEducation,
+                    education_level: editEducation,
                     university: editUniversity,
                     photo: editPhoto
                 })
@@ -96,7 +96,8 @@ function Profile() {
                     ...user,
                     name: editName,
                     email: editEmail,
-                    degree: editEducation,
+                    education_level: editEducation,
+                    degree: editEducation,         // keep both for display compatibility
                     university: editUniversity,
                     photo: editPhoto
                 };
@@ -298,7 +299,7 @@ function Profile() {
                                         key={skill.id}
                                         title={skill.name}
                                         category={skill.category}
-                                        students={skill.type === 'offered' ? "Teaching" : "Learning"}
+                                        type={skill.type}
                                         onEdit={() => handleEditSkill(skill)}
                                     />
                                 ))}

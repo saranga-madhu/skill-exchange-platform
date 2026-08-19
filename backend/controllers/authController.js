@@ -99,7 +99,11 @@ exports.getProfile = async (req, res) => {
 };
 
 exports.updateProfile = async (req, res) => {
-    const { name, email, education_level, university, photo } = req.body;
+    const { name, email, university, photo } = req.body;
+    // Accept both 'education_level' and 'degree' (frontend sends 'degree')
+    const education_level = req.body.education_level !== undefined
+        ? req.body.education_level
+        : req.body.degree;
 
     if (!name || !email) {
         return res.status(400).json({ message: 'Name and email are required' });
@@ -108,7 +112,7 @@ exports.updateProfile = async (req, res) => {
     try {
         await pool.execute(
             'UPDATE users SET name = ?, email = ?, education_level = ?, university = ?, photo = ? WHERE id = ?',
-            [name, email, education_level || 'University Student', university || '', photo || '', req.user.id]
+            [name, email, education_level || '', university || '', photo || '', req.user.id]
         );
 
         res.json({ message: 'Profile updated successfully', name, email, education_level, university, photo });

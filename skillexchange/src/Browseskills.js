@@ -99,13 +99,17 @@ function BrowseSkills() {
         {/* Category Buttons */}
         <Categories
           selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
+          setSelectedCategory={(cat) => {
+            setSelectedCategory(cat);
+            setSearch(""); // reset search when switching category
+          }}
+          skills={skills}
         />
 
         {/* Skill Cards */}
         <div className="skills-grid">
           {loading ? (
-            <p>Loading skills...</p>
+            <p className="skills-status">Loading skills...</p>
           ) : filteredSkills.length > 0 ? (
             filteredSkills.map(skill => (
               <Skillcard1
@@ -115,7 +119,11 @@ function BrowseSkills() {
               />
             ))
           ) : (
-            <p>No skills found.</p>
+            <p className="skills-status">
+              No skills found
+              {selectedCategory !== "All" ? ` in "${selectedCategory}"` : ""}
+              {search ? ` matching "${search}"` : ""}.
+            </p>
           )}
         </div>
       </div>

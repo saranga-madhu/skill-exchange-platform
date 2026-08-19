@@ -40,7 +40,25 @@ exports.getSkills = async (req, res) => {
             JOIN users ON skills.user_id = users.id
         `;
         const params = [];
-        // ... (rest of the conditions logic)
+        const conditions = [];
+
+        if (category && category !== 'All') {
+            conditions.push('skills.category = ?');
+            params.push(category);
+        }
+        if (type) {
+            conditions.push('skills.type = ?');
+            params.push(type);
+        }
+        if (user_id) {
+            conditions.push('skills.user_id = ?');
+            params.push(user_id);
+        }
+
+        if (conditions.length > 0) {
+            query += ' WHERE ' + conditions.join(' AND ');
+        }
+
         const [skills] = await pool.execute(query, params);
         res.json(skills);
     } catch (error) {

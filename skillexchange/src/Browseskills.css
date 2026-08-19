@@ -26,31 +26,76 @@
 }
 
 .categories {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .categories button {
-  margin: 0 5px;
-  padding: 8px 20px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 20px;
+  border-radius: 25px;
+  border: 1.5px solid #d1b3f8;
   background: white;
   cursor: pointer;
-  transition: 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  transition: all 0.2s ease;
 }
 
-.categories button.active,
 .categories button:hover {
-  background: linear-gradient(90deg, #8e2de2, #ff0080);
-  color: white;
-  border: none;
+  border-color: #8e2de2;
+  color: #8e2de2;
+  background: #faf4ff;
+  transform: translateY(-1px);
 }
+
+.categories button.active {
+  background: linear-gradient(135deg, #8e2de2, #ff0080);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(142, 45, 226, 0.35);
+}
+
+.cat-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.cat-count {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  padding: 1px 7px;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+.categories button.active .cat-count {
+  background: rgba(255, 255, 255, 0.25);
+}
+
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
+
+.skills-status {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #888;
+  font-size: 1rem;
+  padding: 40px 20px;
+}
+
 
 .skill-card {
   background: #dfd1f7;

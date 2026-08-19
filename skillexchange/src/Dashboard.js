@@ -89,7 +89,7 @@ function Dashboard() {
           <div className="skills-grid">
             {mySkills.length > 0 ? (
               mySkills.map(skill => (
-                <SkillCard key={skill.id} title={skill.name} category={skill.category} students="0 students" />
+                <SkillCard key={skill.id} title={skill.name} category={skill.category} type={skill.type} />
               ))
             ) : (
               <p>You haven't added any skills yet.</p>
